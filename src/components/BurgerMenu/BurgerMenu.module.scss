@@ -1,0 +1,120 @@
+@import '../../styles/variables';
+
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 30%;
+    border: 1px rgba(237, 236, 234, 0.5) solid;
+    border-top: none;
+    padding: 2% 0%;
+    transform: translateX(-150%);
+    opacity: 1;
+    transition: all .7s;
+    height: 100vh;
+    background-color: $color-light;
+    gap: 15%;
+    z-index: 1001;
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: -5%;
+    }
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30%;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 70%;
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+    }
+    .a {
+        color: $color-dark;
+        text-decoration: none;
+        font-size: calc(#{$size}/1.2);
+        cursor: pointer;
+        transition: all .3s;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+.logo {
+    width: 25% ;
+    margin-top: -10%;
+  }
+  .span {
+    width: 6%;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    transition: all .3s;
+    cursor: pointer;
+  
+    &:hover {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+}
+.scrolled_root {
+    border: 1px $color-dark solid !important;
+    color: $color-dark !important;
+    border-top: none !important;
+    background-color: $color-light !important;
+    .span {
+        width: 5% !important;
+    }
+}
+.scrolled_a {
+    color: $color-dark !important;
+}
+.show_root {
+    transform: translatex(0%);
+    opacity: 1;
+}
+@media screen and (max-width: 630px) {
+    .root {
+        flex-direction: column;
+        gap: 15%;
+        width: 100% !important;
+        border-left: none !important;
+        border-right: none !important;
+        transform: translateY(0%) !important;
+        transform: translateX(-100%) !important;
+        .a {
+            font-size: calc(#{$size}/1.1);
+        }
+        .span {
+            width: 5% !important;
+        }
+    }
+    .show_root {
+        transform: translateX(0%) !important;
+        opacity: 1;
+    }
+   }
+@media screen and (max-width: 550px) {
+   .root {
+    padding: 3% 0;
+   }
+  }

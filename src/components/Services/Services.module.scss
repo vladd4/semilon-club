@@ -1,0 +1,211 @@
+@import '../../styles/variables';
+
+@mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
+.root {
+    display: grid;
+    place-items: center;
+    padding: 7% 0;
+    background-color: $color-light;
+
+    
+    .sliderRow {
+        display: flex;
+        max-width: 90%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7%;
+    
+        .textBlock {
+            max-width: 40%;
+            .textBlock_H {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                img {
+                    width: 8%;
+                }
+                h2 {
+                    color: $color-dark;
+                    font-weight: 400;
+                    font-size: calc(#{$size}*1.2);
+                    text-wrap: nowrap;
+                }
+                span {
+                    width: 100%;
+                    height: 0.5px;
+                    background-color: $color-dark;
+                    margin-top: 1%
+                }
+            }
+            .p {
+                font-size: calc(#{$size}/1.3);
+                color: $color-dark;
+                text-wrap: balance;
+            }
+        }
+        .sliderImg {
+            width: 30%;
+            max-height: 50%;
+        }
+    }
+}
+.reverse {
+    flex-direction: row-reverse !important;
+}
+.reversed_p {
+    text-align: end !important;
+    margin-left: 5% !important;
+}
+.table {
+    display: grid;
+    place-items: center;
+    max-width: 95%;
+    margin-top: -3%;
+    .row1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            max-width: 25%;
+            justify-content: center;
+            align-items: center;
+
+            h5 {
+                text-align: center;
+                margin-bottom: -5%;
+                font-size: calc(#{$size}/1.35);
+                color: $color-dark;
+                font-weight: 600;
+            }
+            p {
+                text-align: center;
+                font-size: calc(#{$size}/1.4);
+                color: $color-middle
+            }
+        }
+    }
+    .main_part {
+        display: grid;
+        place-items: center;
+        border: 1px solid $color-dark;
+        width: 100%;
+
+        div {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $color-middle;
+            width: 90%;
+            font-size: calc(#{$size}/1.4);
+            justify-content: space-between;
+            height: 50%;
+            color: $color-dark;
+            p {
+                padding: 0% 5%;
+            }
+            .h {
+                padding: 0;
+            }
+            .p_25 {
+                margin-left: 35%;
+            }
+            .p_5 {
+                margin-left: 17%;
+            }
+            .p_free {
+                margin-right: 2%;
+            }
+        }
+    }
+}
+
+.animated{
+    @include keyframes(fade1){
+        0%{
+        opacity: 0;
+        }
+       50%{
+        opacity: 0.5;
+        }
+       100%{
+        opacity: 1;
+       }
+      }
+    @include animate(fade1, 1s, linear, forwards);
+}
+@media screen and (max-width: 1000px) {
+    .textBlock {
+        max-width: 42% !important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .textBlock {
+        max-width: 45% !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .textBlock {
+        max-width: 50% !important;
+    }
+}
+@media screen and (max-width: 720px) {
+    .textBlock {
+        max-width: 50% !important;
+    }
+    .sliderRow {
+        margin-top: 4% !important;
+    }
+    .h {
+        padding-right: 4% !important;
+    }
+}
+@media screen and (max-width: 630px) {
+    .textBlock {
+        max-width: 55% !important;
+    }
+}
+@media screen and (max-width: 550px) {
+    .h {
+        max-width: fit-content !important;
+    }
+    .span {
+        font-size: 10px;
+    }
+    .sliderRow {
+        flex-direction: column-reverse !important;
+    }
+    .sliderImg {
+        width: 70% !important;
+    }
+    .textBlock {
+        max-width: 70% !important;
+    }
+}
+@media screen and (max-width: 450px) {
+    .textBlock {
+        max-width: 85% !important;
+    }
+    .sliderImg {
+        width: 85% !important;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .sliderRow {
+        margin-left: 0%;
+    }
+    .root {
+        padding-bottom: 2% !important;
+    }
+}

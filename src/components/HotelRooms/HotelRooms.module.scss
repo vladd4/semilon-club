@@ -1,0 +1,347 @@
+@import '../../styles/variables';
+
+@mixin animate($animation,$duration,$method,$times){
+    animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
+
+.root {
+    display: grid;
+    place-items: center;
+    padding-top: 2%;
+    padding-bottom: 7%;
+    background-color: $color-light;
+    position: relative;
+
+    .line {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        top: 3%;
+    }
+    .navSection {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 65%;
+        z-index: 5 !important;
+
+        .h {
+            font-weight: 600;
+            font-size: calc(#{$size} * 1.6);
+            max-width: 20%;
+            text-align: center;
+            border-left: 2px solid $color-dark;
+            color: $color-dark;
+            padding-left: 2%;
+        }
+        .linksRow {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 5;
+
+            p {
+                color: $color-middle;
+                font-size: calc(#{$size}/1.3);
+                cursor: pointer;
+                transition: all .3s;
+                z-index: 5;
+                &:hover {
+                    color: $color-dark;
+                }
+            }
+            .spanBlock {
+                position: relative;
+                z-index: 5;
+
+                .activeLink {
+                    color: $color-dark;
+                    z-index: 5;
+                }
+                .span {
+                    position: absolute;
+                    top: 65%;
+                    left: 50%;
+                    transform: translate(-50%);
+                    color: $color-dark;
+                    z-index: 5;
+                }
+            }
+            
+        }
+    }
+    .sliderBlock {
+        display: flex;
+        align-items: center;
+        margin-right: 5%;
+        margin-top: 1%;
+        position: relative;
+        justify-content: center;
+        z-index: 5;
+
+        .mainImage {
+            width: 85%;
+            margin-right: 15%;
+        }
+        .hotelInfo {
+            display: flex;
+            flex-direction: column;
+            background-color: $color-dark;
+            max-width: 40%;
+            height: 500px;
+            position: absolute;
+            right: -12%;
+            color: $color-light;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(0);
+            transition: all .5s;
+
+            .iconBlock {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                
+                img {
+                    width: 50%;
+                }
+                .bath {
+                    width: 74%;
+                }
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    p {
+                        font-size: calc(#{$size}/1.7);
+                    }
+                }
+            }
+            h2 {
+                font-weight: 500;
+                text-align: center;
+                max-width: 75%;
+                font-size: calc(#{$size}*1.2);
+            }
+            .p {
+                font-size: calc(#{$size}/1.4);
+                text-align: center;
+                border-top: 2px solid $color-light;
+                border-bottom: 2px solid $color-light;
+                padding: 3% 0;
+                width: 90%;
+                margin-top: -2%;
+            }
+            a {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                text-decoration: none;
+            }
+            button {
+                border: none;
+                background-color: $color-middle;
+                width: 80%;
+                padding: 5%;
+                margin-top: 5%;
+                transition: all .3s;
+
+                &:hover {
+                   background-color: #6d685f;
+                }
+                a {
+                    color: $color-light;
+                    font-size: calc(#{$size}/1.2);
+                    font-weight: 300;
+                    text-decoration: none;
+                    font-family: Montserrat Alternates;
+                    cursor: pointer;
+                    transition: all .3s;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+}
+.hovered {
+    transform: translateX(200px) !important;
+    transition: all .5s !important;
+}
+.animated {
+    @include keyframes(fade1){
+        0%{
+        opacity: 0;
+        }
+       50%{
+        opacity: 0.5;
+        }
+       100%{
+        opacity: 1;
+       }
+      }
+    @include animate(fade1, 1s, linear, forwards);
+}
+@media screen and (max-width: 1300px) {
+    .hovered {
+        transform: translateX(50px) !important;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .hotelInfo {
+        height: 400px !important;
+        max-width: 45% !important;
+        top: 5% !important;
+    }
+    .hovered {
+        transform: translateX(80px) !important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .navSection {
+        width: 75% !important;
+    }
+    .mainImage {
+        width: 65% !important;
+        margin-right: 10% !important;
+    }
+    .hotelInfo {
+        max-height: 90% !important;
+        max-width: 45% !important;
+        right: -20% !important;
+        padding-top: 1% !important;
+
+        button {
+            margin-top: 0 !important;
+            padding: 3% !important;
+        }
+        h2 {
+            max-width: fit-content !important;
+            font-size: calc(#{$size}*1.1) !important;
+        }
+        .p {
+            margin-top: -2% !important;
+            padding: 1%  0% !important;
+        }
+        .bath {
+            width: 66% !important;
+        }
+    }
+    .iconBlock {
+        img {
+            width: 35% !important;
+        }
+    }
+    .sliderBlock {
+        margin-right: 10% !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .hovered {
+        transform: translateX(50px) !important;
+    }
+}
+@media screen and (max-width: 720px) {
+    .navSection {
+        flex-direction: column-reverse !important;
+    }
+    .sliderBlock { 
+        margin-top: 4% !important;
+    }
+    .hovered {
+        transform: translateX(10px) !important;
+    }
+    .line {
+        top: 15% !important;
+    }
+    .hotelInfo {
+        right: -17% !important
+    }
+}
+@media screen and (max-width: 630px) {
+    .navSection {
+        width: 100% !important;
+    }
+    .sliderBlock {
+        flex-direction: column !important;
+        margin-right: 0 !important;
+    }
+    .hotelInfo {
+        position: initial !important;
+        max-width: 55% !important;
+        height: auto !important;
+        padding: 1% 0 !important;
+        margin-top: -10% !important;
+    }
+    .hovered {
+        transform: translateY(60px) !important;
+    }
+}
+@media screen and (max-width: 500px) {
+    .h {
+        max-width: fit-content !important;
+    }
+    .span {
+        font-size: 10px;
+    }
+    .mainImage {
+        width: 70% !important;
+    }
+    .hotelInfo {
+        max-width: 60% !important;
+        padding: 2% 0 !important;
+        margin-top: -22% !important;
+        
+        .bath {
+            width: 50% !important;
+        }
+    }
+    .hovered {
+        transform: translateY(40px) !important;
+    }
+}
+@media screen and (max-width: 450px) {
+    .navSection {
+        width: 100% !important;
+    }
+    .hotelInfo {
+        max-width: 75% !important;
+        margin-top: -5% !important;
+        .p {
+            margin-top: 0% !important;
+        }
+    }
+    .sliderBlock {
+        margin-top: 4% !important;
+    }
+    .hovered {
+        transform: translateY(30px) !important;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .mainImage {
+        width: 100% !important;
+    }
+    .hotelInfo {
+        right: -15% !important;
+        max-width: 44% !important;
+        height: 600px !important;
+        
+        button {
+            margin-top: 1% !important;
+        }
+    }
+    .p {
+        margin-top: -2% !important;
+    }
+}

@@ -1,0 +1,197 @@
+@import '../../styles/variables';
+
+.root {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0%;
+        
+        .image {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: all .3s;
+            transform: rotate(0deg);
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        .h2 {
+            color: $color-light;
+            font-weight: 300;
+            font-size: calc(#{$size} /1.2);
+            padding-left: 8%;
+        }
+        
+    }
+    .logo {
+        width: 15%;
+        opacity: 0;
+        transition: all .4s;
+        margin-left: 10%;
+    }
+    .a {
+        width: 100%;
+        text-decoration: none;
+        color: $color-light;
+    }
+    .article_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .contact_block {
+        font-size: calc(#{$size}/1.3);
+        color: $color-light;
+        position: relative;
+        z-index: 999;
+        .cont_p {
+            cursor: pointer;
+            transition: all .3s;
+             &:hover {
+                opacity: 0.6;
+             }
+        }
+        .div {
+            position: absolute;
+            top: 120%;
+            left: -75%;
+            display: block;
+            text-align: center;
+            font-size: calc(#{$size}/1.3);
+            border: 1px solid $color-light;
+            padding: 5% 25%;
+            transition: all .5s;
+            z-index: 998;
+            transform: translateY(-150%);
+            h5 {
+                margin-top: 0%;
+            }
+            p {
+                margin-top: -5%;
+                margin-bottom: 5%;
+            }
+            a {
+                color: $color-light !important;
+                text-decoration: none;
+                transition: all.3s;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+    .a_map {
+        text-decoration: none;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    .map_block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        img {
+            width: 22%;
+        }
+        p {
+            font-size: calc(#{$size} /1.3);
+            color: $color-light;
+        }
+    }
+    
+}
+.scrolled {
+    border-bottom: 1px $color-dark solid;
+    color: $color-dark;
+    background-color: $color-light;
+    justify-content: space-around;
+}
+.scrolled_btn {
+    border-left: 1px solid $color-dark !important;
+    border-right: 1px solid $color-dark !important;
+    color: $color-dark !important;
+    .a {
+        color: $color-dark;
+    }
+}
+.scrolled_h2 {
+    color: $color-dark !important;
+}
+.scrolled_wrap {
+    color: $color-dark !important;
+    p {
+        color: $color-dark !important;
+    }
+    .contact_block {
+        .div {
+            border-color: $color-dark !important;
+            background-color: $color-light;
+            h5 {
+                color: $color-dark !important;
+            }
+            a {
+                color: $color-dark !important;
+            }
+        }
+    }
+    
+}
+.scrolled_logo {
+    opacity: 1 !important;
+}
+.burger_clicked {
+    transform: rotate(90deg) !important;
+}
+.contact_clicked {
+    transform: translateY(0%) !important;
+}
+@media screen and (max-width: 1000px) {
+    .image {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
+@media screen and (max-width: 630px) {
+    .logo {
+        display: none !important;
+    }
+    .contact_block {
+        .div {
+            left: -100% !important;
+            font-size: calc(#{$size/1.1}) !important;
+        }    
+    }
+    .article_wrap {
+        gap: 5px !important;
+    }
+}
+@media screen and (max-width: 550px) {
+    .button {
+     padding: 3% 1% !important;
+    }
+    .image {
+        width: 18px !important;
+        height: 18px !important;
+    }
+   }
