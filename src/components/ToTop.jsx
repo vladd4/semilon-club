@@ -7,7 +7,7 @@ const ToTop = () => {
   return (
     <img
       onClick={handleClick}
-      alt="To top"
+      alt="To top button"
       src={toTop}
       className={`toTop-btn ${isScrolledTop ? "topShow" : ""}`}
     ></img>
